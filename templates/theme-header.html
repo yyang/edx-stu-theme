@@ -13,8 +13,36 @@
     <ul class="nav cwrap">
       <li data-type="topmenu" class="item logo dropmaker menu">
         <div class="menu-quicknav menu-container HIDE">
-          <ul><span>行政办公</span>
-            <li><a href="http://notes.stu.edu.cn">校内办公信息网</a></li>
+          <ul>
+            <span>行政办公</span>
+            <li><a href="http://notes.stu.edu.cn" class="quicknav_link" target="_blank">校内办公信息网</a></li>
+            <li><a href="http://hr.stu.edu.cn" class="quicknav_link" target="_blank">人力资源系统</a></li>
+            <li><a href="http://mms.stu.edu.cn" class="quicknav_link" target="_blank">会务管理系统</a></li>
+            <li><a href="http://carfleet.stu.edu.cn" class="quicknav_link" target="_blank">车队管理系统</a></li>
+            <li><a href="http://lrmo.stu.edu.cn" class="quicknav_link" target="_blank">资源事务系统</a></li>
+            <li><a href="http://repair.stu.edu.cn" class="quicknav_link" target="_blank">网上报修系统</a></li>
+            <li><a href="http://www.stu.edu.cn/index.php?option=com_content&amp;view=article&amp;id=475&amp;Itemid=119" class="quicknav_link" target="_blank">校内常用电话</a></li>
+            <li><a href="http://www.stu.edu.cn" class="quicknav_link" target="_blank">汕头大学</a></li>
+          </ul>
+          <ul class="quicknav_list">
+            <span>教学科研</span>
+            <li><a href="http://credit.stu.edu.cn" class="quicknav_link" target="_blank">学分制系统</a></li>
+            <li><a href="http://sro.stu.edu.cn" class="quicknav_link" target="_blank">科研管理系统</a></li>
+            <li><a href="http://zxsys.stu.edu.cn" class="quicknav_link" target="_blank">中心实验室</a></li>
+            <li><a href="http://www.lib.stu.edu.cn/" class="quicknav_link" target="_blank">汕大图书馆</a></li>
+            <li><a href="http://booking.stu.edu.cn" class="quicknav_link" target="_blank">汕大预约中心</a></li>
+            <li><a href="http://io.stu.edu.cn" class="quicknav_link" target="_blank">脑力奥运</a></li>
+            <li><a href="https://my.stu.edu.cn/courses/elc/blocks/mrbs/web/day.php" class="quicknav_link" target="_blank">ELC/CILL Booking</a></li>
+            <li><a href="https://my.stu.edu.cn/courses/elc/login/index.php" class="quicknav_link" target="_blank">ELC Moodle</a></li>
+          </ul>
+          <ul class="quicknav_list">
+            <span>学生事务</span>
+            <li><a href="http://sao.stu.edu.cn" class="quicknav_link" target="_blank">学生事务系统</a></li>
+            <li><a href="http://scholarship.stu.edu.cn" class="quicknav_link" target="_blank">奖学金系统</a></li>
+            <li><a href="http://qgjx.stu.edu.cn/" class="quicknav_link" target="_blank">勤工俭学申请</a></li>
+            <li><a href="http://outlay.stu.edu.cn/" class="quicknav_link" target="_blank">学生经费管理</a></li>
+            <li><a href="http://dorm.stu.edu.cn" class="quicknav_link" target="_blank">学生宿舍管理</a></li>
+            <li><a href="http://slc.stu.edu.cn" class="quicknav_link" target="_blank">互助学习中心</a></li>
           </ul>
         </div>
       </li>
@@ -23,10 +51,10 @@
         <div class="notifi menu"><a href="/v2/notification/" data-type="topmenu"><i class="icon-comment"></i><span class="unread"></span></a></div>
         <div class="calendar"><a href="/v2/calendar/"><span class="mo">Dec</span><span class="day">22</span></a></div>
         <div class="mail"><a href="https://webmail.stu.edu.cn/"><i class="icon-envelope-alt"></i></a></div>
-        <div class="menu course"><a href="/v2/course" data-type="topmenu"><i class="icon-book"></i></a><ul class="menu-course HIDE"><li><a href="#course1">Bio101</a></li><li><a href="#course2">CS101</a></li><li><a href="#course3">Chem101</a></li><li><a href="#course4">毛泽东思想、邓小平理论和三个代表重要思想概论</a></li></ul></div>
+        <div class="menu course"><a href="/v2/course" data-type="topmenu"><i class="icon-book"></i></a></div>
       </li>
       <li class="item search"><div data-type="search" id="search" class="input inputselect"><input type="text" placeholder="search people"><i class="icon-search"></i></div></li>
-    <li data-type="topmenu" class="item user dropmaker menu"><span class="avatar cur"></span><ul class="menu-user HIDE"><li><a data-type="locale" data-locale="en-us">简体中文</a></li><li><a href="https://my.stu.edu.cn">Previous Version</a></li><li><a href="/v2/profile">My Profile</a></li><li><a href="http://www.stu.edu.cn">STU Homepage</a></li><li><a href="/help">Help</a></li><li><a href="/services/api/user/logout">Logout</a></li></ul></li>
+      <li data-type="topmenu" class="item user dropmaker menu"><span class="avatar cur"></span><ul class="menu-user HIDE"><li><a data-type="locale" data-locale="en-us">简体中文</a></li><li><a href="https://my.stu.edu.cn">Previous Version</a></li><li><a href="/v2/profile">My Profile</a></li><li><a href="http://www.stu.edu.cn">STU Homepage</a></li><li><a href="/help">Help</a></li><li><a href="/services/api/user/logout">Logout</a></li></ul></li>
     </ul>
   </div>
   <div id="myst-spacer"></div>
@@ -35,7 +63,7 @@
 
 ## TODO: this will eventually be moved to the Sass
 <%block name="navigation_logo">
-  <img src="${static.url('themes/stanford/images/stanford-S-logo.png')}" height="35" alt="${_('{platform_name}, Courses List').format(platform_name='Stanford Online')}" />
+  EDX
 </%block>
 
 ## We don't want extra links inside the navigation dropdown

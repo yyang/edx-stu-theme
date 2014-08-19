@@ -9,14 +9,17 @@
 //  Color variables (from Stanford palette unless noted)
 //-----------------
 
+//#b6003a, #90002e
+//@include gradient-tb(#97002d, #7b0027);
+
 //Cardinal Color Variables
-$cardinal-red: #8C1515;
-$dark-red: #820000; //Link Color
+$cardinal-red: #97002d;
+$dark-red: #ac0034; //Link Color
 $cardinal-light: #c83737; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $cardinal-bg: #e9afaf; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
 
 //Beige Color Variables
-$beige: #9d9573;
+$beige: #666;
 $beige-60: lighten($beige, 18.5%); //Main Border/HR Color
 $beige-25: lighten($beige, 25%); 
 

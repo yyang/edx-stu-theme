@@ -44,14 +44,27 @@
         </div>
       </li>
       <li class="item quicklinks">
-        <div class="home"><a href="/v2/discussion/"><i class="icon-home"></i></a></div>
-        <div class="notifi menu"><a href="/v2/notification/" data-type="topmenu"><i class="icon-comment"></i><span class="unread"></span></a></div>
-        <div class="calendar"><a href="/v2/calendar/"><span class="mo">Dec</span><span class="day">22</span></a></div>
-        <div class="mail"><a href="https://webmail.stu.edu.cn/"><i class="icon-envelope-alt"></i></a></div>
-        <div class="menu course"><a href="/v2/course" data-type="topmenu"><i class="icon-book"></i></a></div>
+        <div class="home"><a href="https://my.stu.edu.cn/v2/discussion/"><i class="icon-home"></i></a></div>
+        <div class="notifi menu"><a data-type="topmenu"><i class="icon-comment"></i><span class="unread"></span></a><ul class="menu-notifi menu HIDE">
+          <li class="title"><a href="https://my.stu.edu.cn/v2/notification/index.html#/show-all"><span>0</span>Notifications</a></li>
+          <li class="title"><a href="https://my.stu.edu.cn/v2/notification/index.html#/news/1"><span>0</span>School News</a></li> 
+          <li class="title"><a href="https://my.stu.edu.cn/v2/notification/index.html#/news/2"><span>0</span>Department News</a></li>
+          <li class="footer"><a href="https://my.stu.edu.cn/v2/notification/index.html#/show-all">See All</a></li>
+        </ul></div>
+        <div class="calendar"><a href="https://my.stu.edu.cn/v2/calendar/"><span class="mo">Dec</span><span class="day">22</span></a></div>
+        <div class="mail"><a href="http://webmail.stu.edu.cn/"><i class="icon-envelope-alt"></i></a></div>
+        <div class="menu course"><a href="https://my.stu.edu.cn/v2/course" data-type="topmenu"><i class="icon-book"></i></a></div>
       </li>
       <li class="item search"><div data-type="search" id="search" class="input inputselect"><input type="text" placeholder="search people"><i class="icon-search"></i></div></li>
-      <li data-type="topmenu" class="item user dropmaker menu"><span class="avatar cur"></span><ul class="menu-user HIDE"><li><a data-type="locale" data-locale="en-us">简体中文</a></li><li><a href="https://my.stu.edu.cn">Previous Version</a></li><li><a href="/v2/profile">My Profile</a></li><li><a href="http://www.stu.edu.cn">STU Homepage</a></li><li><a href="/help">Help</a></li><li><a href="/services/api/user/logout">Logout</a></li></ul></li>
+      <li data-type="topmenu" class="item user dropmaker menu"><span class="avatar cur"></span><ul class="menu-user HIDE">
+        ## <li><a data-type="locale" data-locale="en-us">简体中文</a></li>
+        ## <li><a href="https://my.stu.edu.cn">Previous Version</a></li>
+        <li class="name">My Name</li>
+        <li><a href="https://my.stu.edu.cn/v2/profile">My Profile</a></li>
+        <li><a href="http://www.stu.edu.cn">STU Homepage</a></li>
+        <li><a href="/faq">Help</a></li>
+        <li><a href="https://my.stu.edu.cn/logout">Logout</a></li>
+      </ul></li>
     </ul>
   </div>
   <div id="mystu-spacer"></div>

@@ -1025,7 +1025,7 @@ span.dropmaker {
   bottom: 0;
   z-inde: 100;
   .button-wrapper {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 50%;
   }
@@ -1057,15 +1057,38 @@ span.dropmaker {
     @include transition(all .5s ease-in-out);
   }
   .frame {
-    position: relative;
-    margin: 20px auto;
-    width: 800px;
-    background-color: white;
     display: none;
+    position: relative;
+    margin: 40px auto;
+    padding: 20px;
+    width: 460px;
+    border-radius: 3px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    text-align: center;
+    .title {
+      font-size: 1.2em;
+      padding: 8px 0 20px;
+    }
+    .text {
+      border: 1px solid #ccc;
+      border-width: 1px 0;
+      padding: 20px 0;
+      p {
+        text-align: center;
+        margin-top: 6px;
+        font-size: 14px;
+      }
+      p:first-child {
+        margin-top: 0;
+      }
+    }
   }
   body.HELP & {
     right: 0;
+    z-index: 1000;
     background-color: rgba(255, 255, 255, 0.5);
+    overflow: scroll;
     .frame {
       display: block;
     }

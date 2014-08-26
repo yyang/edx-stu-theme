@@ -5,19 +5,22 @@ $(function() {
   
   var monthsString = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
-  header.delegate('[data-type]', 'click', function(evt){
+  header.delegate('[data-type]', 'click', clickHandler);
+  fillHeaderData();
+
+  helper.delegate('[data-type', 'click', clickHandler);
+
+  function clickHandler (evt) {
     var type = o(evt.currentTarget).data('type')
     switch (type) {
       case 'topmenu':
         topmenu(evt.currentTarget);
         break;
+      case 'help':
+        addHelper();
+        break;
     }
-  });
-  fillHeaderData();
-
-  helper.delegate('[data-type', 'click', function(evt){
-
-  });
+  }
 
 
 
@@ -70,5 +73,18 @@ $(function() {
 
 
   // START OF HELPER FUNCTIONS *************************************************
+  function addHelper () {
+    o('body').addClass('HELP');
+    var frame = helper.find('.frame')[0];
+    var button = helper.find('.help-button')[0];
+    function blurHandler(evt) {
+      var target = evt.target;
+      for (var node = target; node; node = node.parentNode)
+        if (frame === node || button === node) return;
+      document.removeEventListener('mousedown', blurHandler);
+      o('body').removeClass('HELP');
+    }
+    document.addEventListener('mousedown', blurHandler, false);
+  }
   // END OF HELPER FUNCTIONS ***************************************************
 });

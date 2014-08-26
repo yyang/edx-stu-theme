@@ -28,12 +28,12 @@ $(function() {
     header.find('.mo').text(monthsString[new Date().getMonth()].slice(0, 3));
     header.find('.day').text(new Date().getDate());
     // User Data
-    var userData = getData('https://uat.stu.edu.cn/v2/services/api/user/validate');
-    header.find('span.avatar.cur').css('background-image', 'url(' + userData.logoUrl + ')');
-    header.find('span.avatar.cur + .menu-user .name').text(userData.fullName);
+    //var userData = getData('https://uat.stu.edu.cn/v2/services/api/user/validate');
+    //header.find('span.avatar.cur').css('background-image', 'url(' + userData.logoUrl + ')');
+    //header.find('span.avatar.cur + .menu-user .name').text(userData.fullName);
     // Notification
-    var notificationData = getData('https://uat.stu.edu.cn/v2/services/api/notification/unread');
-    header.find('.notifi.menu .unread').text(notificationData['1'].length);
+    //var notificationData = getData('https://uat.stu.edu.cn/v2/services/api/notification/unread');
+    //header.find('.notifi.menu .unread').text(notificationData['1'].length);
   }
 
   function getData(url) {

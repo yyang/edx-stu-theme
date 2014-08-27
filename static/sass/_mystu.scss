@@ -619,7 +619,7 @@ span.dropmaker {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 40;
+  z-index: 200;
   @include gradient-tb(#97002d, #7b0027);
   border-bottom: 1px #a40132 solid;
   font-size: 12px;
@@ -691,6 +691,7 @@ span.dropmaker {
       height: 13px;
       line-height: 13px;
       color: #333;
+      text-align: center;
     }
     div.calendar > a {
       font-size: 10px;
@@ -739,164 +740,180 @@ span.dropmaker {
       height: 20px;
       width: 280px;
       line-height: 20px;
-            //color: #fff;
-            &::-webkit-input-placeholder {
-              color: #ccc;
-            }
-            &::-moz-placeholder {
-              color: #ccc;
-            }
-            input {
-              min-width: 100px;
-              color: #fff;
-            }
-          }
-          i {
-            float: right;
-            font-size: 18px;
-            color: #91022d;
-            text-shadow: 0 -1px 0 #000;
-            // padding-top: 1px;
-          }
-        }
-        li.user {
-          float: right;
-        //-position: relative;
-        height: 40px;
-        width: 60px;
-        padding: 7px 0;
-        .avatar {
-          display: inline-block;
-          border-radius: 5px;
-          background-color: #fff;
-          background-size: 40px;
-          width: 40px;
-          height: 40px;
-        }
-      } 
-      .menu-quicknav {
-        top: 55px;
-        left: 20px;
-        width: 33em;
-        &::before, &::after {
-          left: 69.5px;
-        }
-        &::after {
-          left: 70.5px;
-        }
-        ul {
-          vertical-align: top;
-          display: inline-block;
-          padding: 0.5em;
-          width: 10em;
-          color: #999;
-          span {
-            white-space: nowrap;
-            font-size: 1em;
-            line-height: 47px;
-          }
-        }
-        li {
-          list-style: none;
-          padding-right: 1em;
-          &::before {
-            font-family: FontAwesome;
-            font-weight: normal;
-            font-style: normal;
-            content: "\f101";
-            padding-right: 0.5em;
-          }
-        }
-        a {
-          color: #ccc;
-        }
-        a:hover {
-          color: #fff;
-        }
+      &::-webkit-input-placeholder {
+        color: #ccc;
       }
-
-      .menu-user {
-        top: 55px;
-        right: 0;
-        &::before {
-          right: 34px;
-        }
-        &::after {
-          right: 35px;
-        }
+      &::-moz-placeholder {
+        color: #ccc;
       }
-
-      .menu-notifi {
-        top: 46px;
-        width: 24em;
-        left: -20px;
-        &::before {
-          left: 35px;
-        }
-
-        &::after {
-          left: 36px;
-        }
-      }
-
-      .menu-notifi li {
-        white-space: normal;
-        text-align: left;
-        a {
-          color: #999;
-          text-transform: uppercase;
-        }
-        a:hover {
-          color: #ccc;
-        }
-        span {
-          float: right;
-          color: #fff;
-          font-weight: 600;
-          line-height: 27px;
-        }
-        &:first-child {
-          margin-top: -3px;
-        }
-        &:last-child {
-          margin-bottom: -3px;
-        }
-        &.footer {
-          text-align: center;
-        }
-      }
-
-    }
-
-    .clear, #wrapper {
-      &:after {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 0;
-        clear:both;
+      input {
+        min-width: 100px;
+        color: #fff;
       }
     }
+    .input input {
+      height: 20px;
+      width: 290px;
+      line-height: 20px;
+      color: #fff;
+      vertical-align: top;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      font-size: 13px;
+    }
+    i {
+      float: right;
+      font-size: 18px;
+      color: #91022d;
+      text-shadow: 0 -1px 0 #000;
+    }
+  }
+  li.user {
+    float: right;
+    height: 40px;
+    width: 60px;
+    padding: 7px 0;
+    .avatar {
+      display: inline-block;
+      border-radius: 5px;
+      background-color: #fff;
+      background-size: 40px;
+      width: 40px;
+      height: 40px;
+    }
+  } 
 
-    #mystu-spacer {
-      display: block;
-      position: relative;
-      left: 0;
-      right: 0;
-      height: 56px;
+  .menu-quicknav {
+    top: 55px;
+    left: 20px;
+    width: 34em;
+    &::before, &::after {
+      left: 69.5px;
+    }
+    &::after {
+      left: 70.5px;
+    }
+    ul {
+      vertical-align: top;
+      display: inline-block;
+      padding: 0.5em;
+      width: 10em;
+      color: #999;
+      span {
+        white-space: nowrap;
+        font-size: 1em;
+        line-height: 26px;
+        color: #999;
+      }
+      &:nth-child(2) {
+        width: 11em;
+      }
+      &:nth-child(3) {
+        width: 9em;
+      }
+    }
+    li {
+      list-style: none;
+      padding-right: 1em;
+      &::before {
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        content: "\f101";
+        padding-right: 0.5em;
+      }
+    }
+    a {
+      color: #ccc;
+    }
+    a:hover {
+      color: #fff;
+    }
+  }
+
+  .menu-user {
+    top: 55px;
+    right: 0;
+    &::before {
+      right: 34px;
+    }
+    &::after {
+      right: 35px;
+    }
+  }
+
+  .menu-notifi {
+    top: 46px;
+    width: 24em;
+    left: -20px;
+    &::before {
+      left: 35px;
     }
 
-    #wrapper {
-      margin-top: -32px;
-      min-height: 532px;
+    &::after {
+      left: 36px;
     }
+  }
 
-    #subnav {
-      height: 32px;
-      .tab {
-        display: inline-block;
-        margin-right: 3px;
-        height: 31px;
+  .menu-notifi li {
+    white-space: normal;
+    text-align: left;
+    a {
+      color: #999;
+      text-transform: uppercase;
+    }
+    a:hover {
+      color: #ccc;
+    }
+    span {
+      float: right;
+      color: #fff;
+      font-weight: 600;
+      line-height: 27px;
+    }
+    &:first-child {
+      margin-top: -3px;
+    }
+    &:last-child {
+      margin-bottom: -3px;
+    }
+    &.footer {
+      text-align: center;
+    }
+  }
+
+}
+
+.clear, #wrapper {
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0;
+    clear:both;
+  }
+}
+
+#mystu-spacer {
+  display: block;
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 56px;
+}
+
+#wrapper {
+  margin-top: -32px;
+  min-height: 532px;
+}
+
+#subnav {
+  height: 32px;
+  .tab {
+    display: inline-block;
+    margin-right: 3px;
+    height: 31px;
     //width: 133px;
     padding: 0 1.8em;
     list-style: none;
@@ -998,7 +1015,7 @@ span.dropmaker {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 50;
+  z-index: 201;
   background-color: #fff;
   border-top: 1px #ccc solid;
   font-size: 12px;

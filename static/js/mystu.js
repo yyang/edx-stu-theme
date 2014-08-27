@@ -8,7 +8,7 @@ $(function() {
   header.delegate('[data-type]', 'click', clickHandler);
   fillHeaderData();
 
-  helper.delegate('[data-type', 'click', clickHandler);
+  helper.delegate('[data-type]', 'click', clickHandler);
 
   function clickHandler (evt) {
     var type = o(evt.currentTarget).data('type')
@@ -31,17 +31,47 @@ $(function() {
     header.find('.mo').text(monthsString[new Date().getMonth()].slice(0, 3));
     header.find('.day').text(new Date().getDate());
     // User Data
-    //var userData = getData('https://uat.stu.edu.cn/v2/services/api/user/validate');
-    //header.find('span.avatar.cur').css('background-image', 'url(' + userData.logoUrl + ')');
-    //header.find('span.avatar.cur + .menu-user .name').text(userData.fullName);
+    var userData = getData('https://uat.stu.edu.cn/v2/services/api/user/validate');
+    header.find('span.avatar.cur').css('background-image', 'url(' + userData.logoUrl + ')');
+    header.find('span.avatar.cur + .menu-user .name').text(userData.fullName);
     // Notification
-    //var notificationData = getData('https://uat.stu.edu.cn/v2/services/api/notification/unread');
-    //header.find('.notifi.menu .unread').text(notificationData['1'].length);
+    var notificationData = getData('https://uat.stu.edu.cn/v2/services/api/notification/unread');
+    
+    var notificationUnread = {
+      all: 0,
+      notification: 0,
+      school: 0,
+      department: 0
+    };
+    for (var k in notificationData) {
+      if (k === '1') {
+        notificationUnread.school += notificationData[k].urNum;
+        notificationUnread.all += notificationData[k].urNum;
+      } else if (k === '2') {
+        notificationUnread.department += notificationData[k].urNum;
+        notificationUnread.all += notificationData[k].urNum;
+      } else {
+        notificationUnread.notification += notificationData[k].urNum;
+        notificationUnread.all += notificationData[k].urNum;
+      }
+    }
+    if (notificationUnread.all) {
+      header.find('.notifi.menu .unread').text(notificationUnread.all);
+      for (var item in notificationUnread) {
+        var query = '.notifi.menu [data-title="' + item + '"] span';
+        header.find(query).text(notificationUnread[item]);
+      }
+      header.find('.notifi.menu a i').css('color', '#fba026');
+    } else {
+      header.find('.notifi.menu .unread').text('0');
+      header.find('.notifi.menu ul.menu-notifi').remove();
+    }
   }
 
   function getData(url) {
     var request = new XMLHttpRequest();
     request.open('GET', url, false);
+    request.withCredentials = true;
     request.send(null);
     if (request.status !== 200) {
       console.error('Error fetching data');

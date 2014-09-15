@@ -85,8 +85,8 @@ $(function() {
       if (~~(request.status/100) === 2) {
         callback(res);
       } else if (request.status === 401) {
-        //location.href = 'https://sso.stu.edu.cn/login?service=' +
-        //    encodeURIComponent(location.href);
+        location.href = 'https://sso.stu.edu.cn/login?service=' +
+            encodeURIComponent(location.href);
       } else {
         console.error(request.status, res);
       }

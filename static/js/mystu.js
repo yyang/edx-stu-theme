@@ -31,28 +31,33 @@ $(function() {
     header.find('.mo').text(monthsString[new Date().getMonth()].slice(0, 3));
     header.find('.day').text(new Date().getDate());
     // User Data
-    var userData = getData('https://uat.stu.edu.cn/v2/services/api/user/validate');
-    header.find('span.avatar.cur').css('background-image', 'url(' + userData.logoUrl + ')');
-    header.find('span.avatar.cur + .menu-user .name').text(userData.fullName);
+    getData('https://uat.stu.edu.cn/v2/services/api/user/validate', fillUserData);
     // Notification
-    var notificationData = getData('https://uat.stu.edu.cn/v2/services/api/notification/unread');
-    
+    getData('https://uat.stu.edu.cn/v2/services/api/notification/unread', fillNotificationData);
+  }
+
+  function fillUserData(data) {
+    header.find('span.avatar.cur').css('background-image', 'url(' + data.logoUrl + ')');
+    header.find('span.avatar.cur + .menu-user .name').text(data.fullName);
+  }
+
+  function fillNotificationData(data) {
     var notificationUnread = {
       all: 0,
       notification: 0,
       school: 0,
       department: 0
     };
-    for (var k in notificationData) {
+    for (var k in data) {
       if (k === '1') {
-        notificationUnread.school += notificationData[k].urNum;
-        notificationUnread.all += notificationData[k].urNum;
+        notificationUnread.school += data[k].urNum;
+        notificationUnread.all += data[k].urNum;
       } else if (k === '2') {
-        notificationUnread.department += notificationData[k].urNum;
-        notificationUnread.all += notificationData[k].urNum;
+        notificationUnread.department += data[k].urNum;
+        notificationUnread.all += data[k].urNum;
       } else {
-        notificationUnread.notification += notificationData[k].urNum;
-        notificationUnread.all += notificationData[k].urNum;
+        notificationUnread.notification += data[k].urNum;
+        notificationUnread.all += data[k].urNum;
       }
     }
     if (notificationUnread.all) {
@@ -68,17 +73,27 @@ $(function() {
     }
   }
 
-  function getData(url) {
+  function getData(url, callback) {
     var request = new XMLHttpRequest();
-    request.open('GET', url, false);
+    request.onload = function(evt) {
+      var res = null;
+      try {
+        res = JSON.parse(request.responseText);
+      } catch(e) {
+        console.log(e);
+      }
+      if (~~(request.status/100) === 2) {
+        callback(res);
+      } else if (request.status === 401) {
+        //location.href = 'https://sso.stu.edu.cn/login?service=' +
+        //    encodeURIComponent(location.href);
+      } else {
+        console.error(request.status, res);
+      }
+    };
+    request.open('GET', url, true);
     request.withCredentials = true;
     request.send(null);
-    if (request.status !== 200) {
-      console.error('Error fetching data');
-      return false;
-    } else {
-      return JSON.parse(request.response);
-    }
   }
 
   function topmenu(menuContainer) {

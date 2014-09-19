@@ -5,12 +5,20 @@
     var methods = ["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"];
 
     var analytics = function() {
-      var analyticsString = JSON.stringify({
+      var analyticsObj = {
         'method': arguments[0],
         'key': arguments[1],
         'content': arguments[2],
-        'url': document.URL
-      });
+        'url': document.URL,
+        'clientTimestamp': (new Date()).getTime()
+      };
+
+      % if user.is_authenticated():
+        analyticsObj.username = ${user.username};
+        analyticsObj.userid = ${user.id};
+      % endif
+
+      var analyticsString = JSON.stringify(analyticsObj);
 
       var request = new XMLHttpRequest();
       request.onload = function(evt) {

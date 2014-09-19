@@ -31,9 +31,9 @@ $(function() {
     header.find('.mo').text(monthsString[new Date().getMonth()].slice(0, 3));
     header.find('.day').text(new Date().getDate());
     // User Data
-    getData('https://uat.stu.edu.cn/v2/services/api/user/validate', fillUserData);
+    getData('https://my.stu.edu.cn/v2/services/api/user/validate', fillUserData);
     // Notification
-    getData('https://uat.stu.edu.cn/v2/services/api/notification/unread', fillNotificationData);
+    getData('https://my.stu.edu.cn/v2/services/api/notification/unread', fillNotificationData);
   }
 
   function fillUserData(data) {

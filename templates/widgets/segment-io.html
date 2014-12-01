@@ -14,8 +14,8 @@
       };
 
       % if user.is_authenticated():
-        analyticsObj.username = ${user.username};
-        analyticsObj.userid = ${user.id};
+        analyticsObj.username = "${user.username}";
+        analyticsObj.userid = "${user.id}";
       % endif
 
       var analyticsString = JSON.stringify(analyticsObj);
